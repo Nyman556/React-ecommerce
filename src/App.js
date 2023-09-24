@@ -7,9 +7,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
 	return (
 		<Router>
-			<div className="flex-column justify-center App">
+			<div className="App">
 				<Header />
-				<div className="flex justify-center">
+				<div>
 					<Routes>
 						<Route path="/explore" element={<ExplorePage />} />
 						<Route exact path="/" element={<HomePage />} />
