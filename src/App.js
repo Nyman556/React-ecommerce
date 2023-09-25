@@ -1,4 +1,5 @@
 import "./App.css";
+import { Footer } from "./components/footer";
 import { Header } from "./components/header";
 import { ExplorePage } from "./pages/explorePage";
 import { HomePage } from "./pages/homePage";
@@ -15,6 +16,7 @@ function App() {
 						<Route exact path="/" element={<HomePage />} />
 					</Routes>
 				</div>
+				<Footer />
 			</div>
 		</Router>
 	);

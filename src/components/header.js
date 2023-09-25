@@ -42,7 +42,7 @@ export function Header() {
 					<Link to="/explore">Shop Now</Link>
 					<Link to="/explore">New Arrivals</Link>
 					<Link to="/explore">Sale</Link>
-					<div class="dropdown">
+					<div>
 						<button
 							onClick={(e) => setCategoriesToggle(!categoriesToggle)}
 							className="inline-flex items-center"
