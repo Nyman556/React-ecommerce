@@ -21,38 +21,36 @@ export function Footer() {
 				<div>
 					<img src={logo} />
 				</div>
-				<div className="flex space-x-24">
-					<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
-						<p>About Us</p>
-						{FOOTER_LINKS_ABOUT.map((linkTitle, idx) => {
-							return (
-								<Link key={idx} className="hover:text-black">
-									{linkTitle}
-								</Link>
-							);
-						})}
-					</ul>
-					<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
-						<p>Blog</p>
-						{FOOTER_LINKS_BLOG.map((linkTitle, idx) => {
-							return (
-								<Link key={idx} className="hover:text-black">
-									{linkTitle}
-								</Link>
-							);
-						})}
-					</ul>
-					<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
-						<p>Return Policy</p>
-						{FOOTER_LINKS_POLICY.map((linkTitle, idx) => {
-							return (
-								<Link key={idx} className="hover:text-black">
-									{linkTitle}
-								</Link>
-							);
-						})}
-					</ul>
-				</div>
+				<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
+					<p>About Us</p>
+					{FOOTER_LINKS_ABOUT.map((linkTitle, idx) => {
+						return (
+							<Link key={idx} className="hover:text-black">
+								{linkTitle}
+							</Link>
+						);
+					})}
+				</ul>
+				<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
+					<p>Blog</p>
+					{FOOTER_LINKS_BLOG.map((linkTitle, idx) => {
+						return (
+							<Link key={idx} className="hover:text-black">
+								{linkTitle}
+							</Link>
+						);
+					})}
+				</ul>
+				<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
+					<p>Return Policy</p>
+					{FOOTER_LINKS_POLICY.map((linkTitle, idx) => {
+						return (
+							<Link key={idx} className="hover:text-black">
+								{linkTitle}
+							</Link>
+						);
+					})}
+				</ul>
 				<div className=" space-y-4 text-lightGray">
 					<h6>Subscribe</h6>
 					<p>Join our mailing list for the latest updates and promotions.</p>

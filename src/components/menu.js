@@ -1,4 +1,4 @@
-import { BiCartAlt, BiLogInCircle } from "react-icons/bi";
+import { BiBox, BiCartAlt, BiLogInCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const listObjects = [
@@ -23,11 +23,14 @@ export function Menu() {
 				{listObjects.map((listItem, idx) => {
 					return (
 						<ul key={idx} className="space-y-16">
-							{listItem.categories.map((category) => {
+							{listItem.categories.map((category, idx) => {
 								return (
-									<Link to="/">
-										<li className=" my-8">
-											<p>{category}</p>
+									<Link key={idx} to="/">
+										<li className="my-8">
+											<p className="flex items-center space-x-2 ">
+												<BiBox />
+												<span>{category}</span>
+											</p>
 											<span className=" text-gray-400">
 												T-shirts, Polos, and Button-Downs
 											</span>
@@ -39,20 +42,22 @@ export function Menu() {
 					);
 				})}
 			</div>
-			<div className="flex justify-between w-4/4 px-24 py-4 bg-lightCyan">
-				<p>
-					Ready to get Started?{" "}
-					<Link className="underline">Sign up for free</Link>
-				</p>
-				<div className="space-x-10">
-					<Link to="/login" className="inline-flex items-center">
-						<BiLogInCircle className="mx-2" />
-						Login
-					</Link>
-					<Link to="/cart" className="inline-flex items-center">
-						<BiCartAlt className="mx-2" />
-						Cart
-					</Link>
+			<div className="w-3/3 px-24 py-4 bg-lightCyan">
+				<div className="w-3/4 flex justify-between mx-auto">
+					<p>
+						Ready to get Started?{" "}
+						<Link className="underline">Sign up for free</Link>
+					</p>
+					<div className="space-x-10">
+						<Link to="/login" className="inline-flex items-center">
+							<BiLogInCircle className="mx-2" />
+							Login
+						</Link>
+						<Link to="/cart" className="inline-flex items-center">
+							<BiCartAlt className="mx-2" />
+							Cart
+						</Link>
+					</div>
 				</div>
 			</div>
 		</>

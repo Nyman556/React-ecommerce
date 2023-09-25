@@ -31,8 +31,11 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="top-0 bg-white z-10" ref={header}>
-			<div className="flex px-60 p-4 border-b-2 border-gray-300  w-4/4 justify-between">
+		<header
+			className="top-0 bg-white z-10 border-b-2 border-gray-300"
+			ref={header}
+		>
+			<div className="w-2/3 flex m-auto py-4  w-4/4 justify-between">
 				<Link to="/">
 					<img src={logo} />
 				</Link>

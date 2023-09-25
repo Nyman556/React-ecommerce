@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
 	return (
 		<Router>
-			<div className="App">
+			<div className="App [&>section]:w-1/3">
 				<Header />
 				<div>
 					<Routes>

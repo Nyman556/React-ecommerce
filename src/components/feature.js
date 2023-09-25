@@ -3,7 +3,7 @@ import { FEATURE_IMAGE_URL } from "../constants/imageUrls";
 
 export function Feature() {
 	return (
-		<section className="lg:flex px-60 my-12 mt-24 text-lightGray">
+		<section className="self-center text-lightGray flex">
 			<div className=" lg:w-2/4 flex flex-col justify-center space-y-8 lg:mr-24">
 				<p>Shop</p>
 				<h3 className=" text-5xl">

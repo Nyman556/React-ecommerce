@@ -4,7 +4,7 @@ import { HowItWorks } from "../components/howItWorks";
 
 export function HomePage() {
 	return (
-		<main className="space-y-60">
+		<main className="[&>section]:w-2/3 flex flex-col space-y-52">
 			<Hero />
 			<HowItWorks />
 			<Feature />
