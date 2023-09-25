@@ -3,7 +3,7 @@ import { HERO_IMAGE_URL } from "../constants/imageUrls";
 
 export function Hero() {
 	return (
-		<section className="flex flex-col justify-center my-12 mx-24">
+		<section className="flex flex-col justify-center my-12 px-60">
 			<div className="flex justify-between my-12">
 				<h1 className=" text-3xl mx-12 lg:text-6xl leading-tight lg:w-2/5">
 					Discover the Latest Fashion Trends for Men and Women

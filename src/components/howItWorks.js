@@ -3,7 +3,7 @@ import { HOW_IT_WORKS_IMAGE_URLS } from "../constants/imageUrls";
 
 export function HowItWorks() {
 	return (
-		<section className="my-12 mt-32 mx-24">
+		<section className="my-12 mt-32 px-60">
 			<div className="flex flex-col text-center space-y-5">
 				<p>Simplistic</p>
 				<h3 className=" text-5xl">

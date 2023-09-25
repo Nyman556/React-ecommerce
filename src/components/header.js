@@ -5,10 +5,10 @@ import { useState } from "react";
 import { Menu } from "./menu";
 
 export function Header() {
-	const [menuToggle, setMenuToggle] = useState(true);
+	const [menuToggle, setMenuToggle] = useState(false);
 	return (
 		<>
-			<div className="flex px-24 p-4 border-b-2 border-gray-300  w-4/4 justify-between">
+			<div className="flex px-60 p-4 border-b-2 border-gray-300  w-4/4 justify-between">
 				<Link to="/">
 					<img src={logo} />
 				</Link>
