@@ -1,7 +1,6 @@
 import logo from "../assets/logo.jpg";
 import { Link } from "react-router-dom";
 import {
-	BiCartAdd,
 	BiCartAlt,
 	BiChevronDown,
 	BiChevronUp,
@@ -9,7 +8,6 @@ import {
 } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
 import { Menu } from "./menu";
-import { Btn } from "./btn";
 import { MAN_CATEGORIES, WOMAN_CATEGORIES } from "../constants/constants";
 
 export function Header() {

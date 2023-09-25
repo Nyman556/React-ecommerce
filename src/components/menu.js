@@ -1,4 +1,4 @@
-import { BiCart, BiCartAlt, BiLogInCircle } from "react-icons/bi";
+import { BiCartAlt, BiLogInCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const listObjects = [

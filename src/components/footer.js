@@ -9,9 +9,7 @@ import {
 import { Btn } from "./btn";
 import {
 	BiLogoFacebookCircle,
-	BiLogoInstagram,
 	BiLogoInstagramAlt,
-	BiLogoLinkedin,
 	BiLogoLinkedinSquare,
 	BiLogoTwitter,
 } from "react-icons/bi";

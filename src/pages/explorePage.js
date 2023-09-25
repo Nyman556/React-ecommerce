@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Btn } from "../components/btn";
 import { EXPLORE_IMAGE_URL } from "../constants/imageUrls";
 
 export function ExplorePage() {
