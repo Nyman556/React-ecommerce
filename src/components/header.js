@@ -33,7 +33,7 @@ export function Header() {
 	}, []);
 
 	return (
-		<header className="top-0 bg-white" ref={header}>
+		<header className="top-0 bg-white z-10" ref={header}>
 			<div className="flex px-60 p-4 border-b-2 border-gray-300  w-4/4 justify-between">
 				<Link to="/">
 					<img src={logo} />
@@ -51,7 +51,7 @@ export function Header() {
 							{categoriesToggle ? <BiChevronUp /> : <BiChevronDown />}
 						</button>
 						{categoriesToggle ? (
-							<div className="absolute flex space-x-10 bg-white border p-4">
+							<div className="absolute z-10 flex space-x-10 bg-white border p-4">
 								<div className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
 									<h6>Men's Clothing</h6>
 									{MAN_CATEGORIES.map((category, idx) => {
