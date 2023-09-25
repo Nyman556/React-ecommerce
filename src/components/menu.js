@@ -28,7 +28,7 @@ export function Menu() {
 									<Link to="/">
 										<li className=" my-8">
 											<p>{category}</p>
-											<span className=" text-gray-500">
+											<span className=" text-gray-400">
 												T-shirts, Polos, and Button-Downs
 											</span>
 										</li>
@@ -39,7 +39,7 @@ export function Menu() {
 					);
 				})}
 			</div>
-			<div className="flex justify-between w-4/4 px-16 py-4 bg-darkCyan">
+			<div className="flex justify-between w-4/4 px-24 py-4 bg-lightCyan">
 				<p>
 					Ready to get Started?{" "}
 					<Link className="underline">Sign up for free</Link>
