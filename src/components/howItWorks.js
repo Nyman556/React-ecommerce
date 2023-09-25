@@ -3,7 +3,7 @@ import { HOW_IT_WORKS_IMAGE_URLS } from "../constants/imageUrls";
 
 export function HowItWorks() {
 	return (
-		<section className="my-12 mt-32 px-60">
+		<section className="my-12 mt-32 px-60 text-lightGray">
 			<div className="flex flex-col text-center space-y-5">
 				<p>Simplistic</p>
 				<h3 className=" text-5xl">
@@ -18,9 +18,7 @@ export function HowItWorks() {
 			<div className="flex justify-center space-x-12 my-12">
 				<div className="text-center w-1/3 space-y-10">
 					<img className=" w-max" src={HOW_IT_WORKS_IMAGE_URLS[0]} />
-					<h5 className=" text-4xl">
-						Find Your Style with <br /> Eease
-					</h5>
+					<h5 className=" text-4xl">Find Your Style with Eease</h5>
 					<p>
 						Our Intuitive search and filter options help you quickly find the
 						clothes that match your style preferences.
@@ -28,9 +26,7 @@ export function HowItWorks() {
 				</div>
 				<div className="text-center w-1/3 space-y-10">
 					<img className=" w-max" src={HOW_IT_WORKS_IMAGE_URLS[1]} />
-					<h5 className=" text-4xl">
-						Find Your Style with <br /> Eease
-					</h5>
+					<h5 className=" text-4xl">Shop with Confidence</h5>
 					<p>
 						We offer secure payment options and hassle-free returns, ensuring a
 						worry-free shopping experience.
@@ -48,8 +44,8 @@ export function HowItWorks() {
 				</div>
 			</div>
 			<div className="flex justify-center space-x-5">
-				<Btn content="Explore" />
-				<Btn content="Sign up" variant="special" />
+				<Btn content="Explore" to="/explore" />
+				<Btn content="Sign up" variant="special" to="/login" />
 			</div>
 		</section>
 	);

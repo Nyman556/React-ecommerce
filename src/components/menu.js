@@ -45,11 +45,11 @@ export function Menu() {
 					<Link className="underline">Sign up for free</Link>
 				</p>
 				<div className="space-x-10">
-					<Link className="inline-flex items-center">
+					<Link to="/login" className="inline-flex items-center">
 						<BiLogInCircle className="mx-2" />
 						Login
 					</Link>
-					<Link className="inline-flex items-center">
+					<Link to="/cart" className="inline-flex items-center">
 						<BiCartAlt className="mx-2" />
 						Cart
 					</Link>

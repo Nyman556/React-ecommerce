@@ -3,9 +3,15 @@
 :root {
 	--dark-cyan: #0e8d8f;
 	--light-cyan: rgba(14, 141, 143, 0.3);
+	--light-gray: #4f4e4f;
 	--lexend: "Lexend", sans-serif;
 }
 
 .App {
 	font-family: var(--lexend);
+}
+
+h5,
+h1 {
+	font-weight: 500;
 }
