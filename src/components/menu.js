@@ -1,38 +1,35 @@
 import { BiBox, BiCartAlt, BiLogInCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
-
-const listObjects = [
-	{
-		categories: ["Shirts", "pants", "Hoodies", "Accessories"],
-		categoriesDesc: [
-			"T-shirts, Polos, and Button-Downs",
-			"Jeans, Chinos and Dress Pants",
-			"Hoodies and Sweatshirts",
-			"Belts, Hats and Sunglasses",
-		],
-	},
-	{ categories: ["Dresses", "Tops", "Bottoms", "Accessories"] },
-	{ categories: ["Contact Us", "FAQs", "Shipping", "Returns"] },
-	{ categories: ["Newsletter", "Follow Us", "About Us"] },
+import {
+	MENU_LINK_LIST_MEN,
+	MENU_LINK_LIST_WOMEN,
+	MENU_LINK_LIST_CUSTOMER_SUPPORT,
+	MENU_LINK_LIST_STAY_CONNECTED,
+} from "../constants/constants";
+const linkContent = [
+	MENU_LINK_LIST_MEN,
+	MENU_LINK_LIST_WOMEN,
+	MENU_LINK_LIST_CUSTOMER_SUPPORT,
+	MENU_LINK_LIST_STAY_CONNECTED,
 ];
 
 export function Menu() {
 	return (
 		<>
 			<div className="flex justify-center space-x-16">
-				{listObjects.map((listItem, idx) => {
+				{linkContent.map((linkContainer) => {
 					return (
-						<ul key={idx} className="space-y-16">
-							{listItem.categories.map((category, idx) => {
+						<ul className="space-y-16">
+							{linkContainer.map((linkItem, idx) => {
 								return (
-									<Link key={idx} to="/">
+									<Link key={idx} to={linkItem.path}>
 										<li className="my-8">
 											<p className="flex items-center space-x-2 ">
 												<BiBox />
-												<span>{category}</span>
+												<span>{linkItem.linkLabel}</span>
 											</p>
 											<span className=" text-gray-400">
-												T-shirts, Polos, and Button-Downs
+												{linkItem.linkDesc}
 											</span>
 										</li>
 									</Link>
@@ -63,3 +60,27 @@ export function Menu() {
 		</>
 	);
 }
+
+/* 
+{listObjects.map((listItem, idx) => {
+	return (
+		<ul key={idx} className="space-y-16">
+			{listItem.categories.map((category, idx) => {
+				return (
+					<Link key={idx} to="/">
+						<li className="my-8">
+							<p className="flex items-center space-x-2 ">
+								<BiBox />
+								<span>{category}</span>
+							</p>
+							<span className=" text-gray-400">
+								T-shirts, Polos, and Button-Downs
+							</span>
+						</li>
+					</Link>
+				);
+			})}
+		</ul>
+	);
+})}
+*/

@@ -8,7 +8,10 @@ import {
 } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
 import { Menu } from "./menu";
-import { MAN_CATEGORIES, WOMAN_CATEGORIES } from "../constants/constants";
+import {
+	MENU_LINK_LIST_MEN,
+	MENU_LINK_LIST_WOMEN,
+} from "../constants/constants";
 
 export function Header() {
 	const header = useRef(null);
@@ -55,20 +58,28 @@ export function Header() {
 							<div className="absolute z-10 flex space-x-10 bg-white border p-4">
 								<div className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
 									<h6>Men's Clothing</h6>
-									{MAN_CATEGORIES.map((category, idx) => {
+									{MENU_LINK_LIST_MEN.map((category, idx) => {
 										return (
-											<Link key={idx} className=" hover:text-black">
-												{category}
+											<Link
+												key={idx}
+												to={category.path}
+												className=" hover:text-black"
+											>
+												{category.linkLabel}
 											</Link>
 										);
 									})}
 								</div>
 								<div className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
 									<h6>women's Clothing</h6>
-									{WOMAN_CATEGORIES.map((category, idx) => {
+									{MENU_LINK_LIST_WOMEN.map((category, idx) => {
 										return (
-											<Link key={idx} className=" hover:text-black">
-												{category}
+											<Link
+												key={idx}
+												to={category.path}
+												className=" hover:text-black"
+											>
+												{category.linkLabel}
 											</Link>
 										);
 									})}

@@ -3,7 +3,7 @@ import { EXPLORE_IMAGE_URL } from "../constants/imageUrls";
 
 export function ExplorePage() {
 	return (
-		<>
+		<main>
 			<section className="flex flex-col justify-center my-12 px-60">
 				<div className="relative self-center">
 					<img className="-z-10" src={EXPLORE_IMAGE_URL} />
@@ -17,6 +17,6 @@ export function ExplorePage() {
 					</div>
 				</div>
 			</section>
-		</>
+		</main>
 	);
 }

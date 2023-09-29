@@ -75,7 +75,7 @@ export function Footer() {
 					<Link className="underline">Terms of Service</Link>
 					<Link className="underline">Cookie Policy</Link>
 				</div>
-				<div className="flex text-darkCyan">
+				<div className="flex text-darkCyan [&>a]:hover:text-black transition-colors">
 					<a href="https://www.facebook.com/">
 						<BiLogoFacebookCircle size={25} />
 					</a>
