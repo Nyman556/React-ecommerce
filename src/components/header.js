@@ -1,5 +1,5 @@
 import logo from "../assets/logo.jpg";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
 	BiCartAlt,
 	BiChevronDown,
@@ -13,7 +13,7 @@ import {
 	MENU_LINK_LIST_WOMEN,
 } from "../constants/constants";
 
-export function Header() {
+export function Header({ setCategory, setSubCategory }) {
 	const header = useRef(null);
 	const [menuToggle, setMenuToggle] = useState(false);
 	const [categoriesToggle, setCategoriesToggle] = useState(false);
@@ -62,8 +62,12 @@ export function Header() {
 										return (
 											<Link
 												key={idx}
-												to={category.path}
+												value={category.linkLabel}
 												className=" hover:text-black"
+												onClick={() => {
+													setCategory(1);
+													setSubCategory(category.linkLabel);
+												}}
 											>
 												{category.linkLabel}
 											</Link>
@@ -76,8 +80,12 @@ export function Header() {
 										return (
 											<Link
 												key={idx}
-												to={category.path}
+												value={category.linkLabel}
 												className=" hover:text-black"
+												onClick={() => {
+													setCategory(2);
+													setSubCategory(category.linkLabel);
+												}}
 											>
 												{category.linkLabel}
 											</Link>

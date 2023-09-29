@@ -17,9 +17,9 @@ export function Menu() {
 	return (
 		<>
 			<div className="flex justify-center space-x-16">
-				{linkContent.map((linkContainer) => {
+				{linkContent.map((linkContainer, idx) => {
 					return (
-						<ul className="space-y-16">
+						<ul className="space-y-16" key={idx}>
 							{linkContainer.map((linkItem, idx) => {
 								return (
 									<Link key={idx} to={linkItem.path}>
