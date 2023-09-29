@@ -1,13 +1,6 @@
 export function Product({ product }) {
 	const { title, desc, brand, thumbnail, price, images } = product.attributes;
 	const thumbnailWidth = "?imwidth=500";
-	const imageBulkWidth = "?imwidth=111";
-	function mouseOver(x) {
-		x.src = images[0];
-	}
-	function mouseOut(x) {
-		x.src = thumbnail + thumbnailWidth;
-	}
 	return (
 		<div
 			className="flex flex-col justify-end  h-fit rounded-xl p-4 max-w-xs cursor-pointer"
@@ -28,4 +21,10 @@ export function Product({ product }) {
 			</div>
 		</div>
 	);
+	function mouseOver(x) {
+		x.src = images[0];
+	}
+	function mouseOut(x) {
+		x.src = thumbnail + thumbnailWidth;
+	}
 }

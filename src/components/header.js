@@ -12,12 +12,16 @@ import {
 	MENU_LINK_LIST_MEN,
 	MENU_LINK_LIST_WOMEN,
 } from "../constants/constants";
+import { useRecoilState } from "recoil";
+import { categoryState } from "../state/atoms/CategoryState";
+import { subCategoryState } from "../state/atoms/SubCategoryState";
 
-export function Header({ setCategory, setSubCategory }) {
+export function Header() {
 	const header = useRef(null);
 	const [menuToggle, setMenuToggle] = useState(false);
 	const [categoriesToggle, setCategoriesToggle] = useState(false);
-
+	const [category, setCategory] = useRecoilState(categoryState);
+	const [subCategory, setSubCategory] = useRecoilState(subCategoryState);
 	const scrollHandler = () => {
 		if (header.current && window.screen.width > 480) {
 			if (window.pageYOffset >= 60) {
@@ -62,11 +66,12 @@ export function Header({ setCategory, setSubCategory }) {
 										return (
 											<Link
 												key={idx}
+												to={category.path}
 												value={category.linkLabel}
 												className=" hover:text-black"
 												onClick={() => {
 													setCategory(1);
-													setSubCategory(category.linkLabel);
+													setSubCategory(category.singular);
 												}}
 											>
 												{category.linkLabel}
@@ -80,11 +85,10 @@ export function Header({ setCategory, setSubCategory }) {
 										return (
 											<Link
 												key={idx}
-												value={category.linkLabel}
 												className=" hover:text-black"
 												onClick={() => {
 													setCategory(2);
-													setSubCategory(category.linkLabel);
+													setSubCategory(category.singular);
 												}}
 											>
 												{category.linkLabel}

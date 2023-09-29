@@ -1,8 +1,14 @@
 import { Link, Navigate } from "react-router-dom";
 import { EXPLORE_IMAGE_URL } from "../constants/imageUrls";
 import { GetProductsById } from "../services/api";
+import { useRecoilState } from "recoil";
+import { categoryState } from "../state/atoms/CategoryState";
+import { subCategoryState } from "../state/atoms/SubCategoryState";
 
-export function ExplorePage({ setCategory, setProducts, setSubCategory }) {
+export function ExplorePage({ setProducts }) {
+	const [category, setCategory] = useRecoilState(categoryState);
+	const [subCategory, setSubCategory] = useRecoilState(subCategoryState);
+
 	return (
 		<main>
 			<section className="flex flex-col justify-center my-12 px-60">
@@ -16,9 +22,6 @@ export function ExplorePage({ setCategory, setProducts, setSubCategory }) {
 							onClick={(e) => {
 								setCategory(2);
 								setSubCategory("");
-								GetProductsById(2).then((apiData) => {
-									setProducts(apiData);
-								});
 							}}
 						>
 							Women
@@ -29,9 +32,6 @@ export function ExplorePage({ setCategory, setProducts, setSubCategory }) {
 							onClick={(e) => {
 								setCategory(1);
 								setSubCategory("");
-								GetProductsById(1).then((apiData) => {
-									setProducts(apiData);
-								});
 							}}
 						>
 							Men

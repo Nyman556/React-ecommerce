@@ -25,21 +25,25 @@ export const MENU_LINK_LIST_MEN = [
 		linkLabel: "Shirts",
 		linkDesc: "T-Shirts, Polos, and Button-Downs",
 		path: "/shop",
+		singular: "shirt",
 	},
 	{
 		linkLabel: "Pants",
 		linkDesc: "Jeans, Chinos and Dress Pants",
 		path: "/shop",
+		singular: "pants",
 	},
 	{
 		linkLabel: "Hoodies",
 		linkDesc: "Hoodies and Sweatshirts",
 		path: "/shop",
+		singular: "hoodie",
 	},
 	{
 		linkLabel: "Accessories",
 		linkDesc: "Belts, Hats and Sunglasses",
 		path: "/shop",
+		singular: "accessory",
 	},
 ];
 
@@ -48,21 +52,25 @@ export const MENU_LINK_LIST_WOMEN = [
 		linkLabel: "Dresses",
 		linkDesc: "Casual dresses and Party dresses",
 		path: "/shop",
+		singular: "dress",
 	},
 	{
 		linkLabel: "Tops",
 		linkDesc: "Tops, tank tops and shirts",
 		path: "/shop",
+		singular: "top",
 	},
 	{
 		linkLabel: "Bottoms",
 		linkDesc: "Jeans, Pants and Skirts",
 		path: "/shop",
+		singular: "bottom",
 	},
 	{
 		linkLabel: "Accessories",
 		linkDesc: "Belts, Hats and Sunglasses",
 		path: "/shop",
+		singular: "accessory",
 	},
 ];
 
