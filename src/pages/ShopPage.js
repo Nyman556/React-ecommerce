@@ -5,8 +5,8 @@ import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
 import { useEffect, useState } from "react";
 import {
+	GetProductsByCatAndSubCat,
 	GetProductsByCatId,
-	GetProductsBySubCat,
 	getAllProducts,
 } from "../services/api";
 
@@ -33,9 +33,11 @@ export function ShopPage() {
 				setProducts(apiData);
 			});
 		} else if (subCategory) {
-			GetProductsBySubCat(subCategory.toLowerCase()).then((apiData) => {
-				setProducts(apiData);
-			});
+			GetProductsByCatAndSubCat(category, subCategory.toLowerCase()).then(
+				(apiData) => {
+					setProducts(apiData);
+				}
+			);
 		}
 	}, [category, subCategory]);
 
@@ -45,13 +47,21 @@ export function ShopPage() {
 				<span
 					onClick={() => {
 						setCategory(0);
+						setSubCategory();
 					}}
 				>
 					All
 				</span>{" "}
 				{category !== 0 ? (
 					<>
-						<BiChevronRight /> <span>{breadCrumb}</span>
+						<BiChevronRight />{" "}
+						<span
+							onClick={() => {
+								setSubCategory();
+							}}
+						>
+							{breadCrumb}
+						</span>
 						{subCategory ? (
 							<>
 								<BiChevronRight /> <span>{subCategory}</span>

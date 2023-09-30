@@ -6,6 +6,7 @@ import { HomePage } from "./pages/homePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ShopPage } from "./pages/ShopPage";
 import { RecoilRoot } from "recoil";
+import { ProductPage } from "./pages/productPage";
 
 function App() {
 	return (
@@ -15,9 +16,10 @@ function App() {
 					<Header />
 					<div className="flex justify-center">
 						<Routes>
-							<Route path="/explore" element={<ExplorePage />} />
 							<Route exact path="/" element={<HomePage />} />
-							<Route exact path="/shop" element={<ShopPage />} />
+							<Route path="/explore" element={<ExplorePage />} />
+							<Route path="/shop" element={<ShopPage />} />
+							<Route path="/product" element={<ProductPage />} />
 						</Routes>
 					</div>
 					<Footer />

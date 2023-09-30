@@ -5,6 +5,7 @@ import {
 	BiChevronDown,
 	BiChevronUp,
 	BiSearch,
+	BiSolidDownArrow,
 } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
 import { Menu } from "./menu";
@@ -31,6 +32,12 @@ export function Header() {
 			}
 		}
 	};
+
+	function handleClick(cat, sub) {
+		setCategory(cat);
+		setSubCategory(sub);
+		setCategoriesToggle(false);
+	}
 
 	useEffect(() => {
 		window.addEventListener("scroll", scrollHandler);
@@ -60,18 +67,28 @@ export function Header() {
 						</button>
 						{categoriesToggle ? (
 							<div className="absolute z-10 flex space-x-10 bg-white border p-4">
-								<div className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
-									<h6>Men's Clothing</h6>
+								<div className="flex flex-col space-y-3 [&>a]:text-gray-400">
+									<Link
+										to="/shop"
+										className=" text-xl hover:text-black"
+										onClick={() => {
+											handleClick(1, "");
+										}}
+									>
+										Men's Clothing
+									</Link>
 									{MENU_LINK_LIST_MEN.map((category, idx) => {
 										return (
 											<Link
 												key={idx}
 												to={category.path}
 												value={category.linkLabel}
-												className=" hover:text-black"
+												className=" text-sm hover:text-black"
 												onClick={() => {
-													setCategory(1);
-													setSubCategory(category.singular);
+													handleClick(
+														category.connectedWithCategory,
+														category.singular
+													);
 												}}
 											>
 												{category.linkLabel}
@@ -79,16 +96,26 @@ export function Header() {
 										);
 									})}
 								</div>
-								<div className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
-									<h6>women's Clothing</h6>
+								<div className="flex flex-col space-y-3 [&>a]:text-gray-400">
+									<Link
+										to="/shop"
+										className=" text-xl hover:text-black"
+										onClick={() => {
+											handleClick(2, "");
+										}}
+									>
+										Women's Clothing
+									</Link>
 									{MENU_LINK_LIST_WOMEN.map((category, idx) => {
 										return (
 											<Link
 												key={idx}
-												className=" hover:text-black"
+												className=" text-sm hover:text-black"
 												onClick={() => {
-													setCategory(2);
-													setSubCategory(category.singular);
+													handleClick(
+														category.connectedWithCategory,
+														category.singular
+													);
 												}}
 											>
 												{category.linkLabel}
@@ -120,7 +147,7 @@ export function Header() {
 					</button>
 				</div>
 			</div>
-			{menuToggle ? <Menu /> : null}
+			{menuToggle ? <Menu setMenuToggle={setMenuToggle} /> : null}
 		</header>
 	);
 }

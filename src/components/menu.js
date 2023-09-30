@@ -6,6 +6,10 @@ import {
 	MENU_LINK_LIST_CUSTOMER_SUPPORT,
 	MENU_LINK_LIST_STAY_CONNECTED,
 } from "../constants/constants";
+import { categoryState } from "../state/atoms/CategoryState";
+import { subCategoryState } from "../state/atoms/SubCategoryState";
+import { useRecoilState } from "recoil";
+
 const linkContent = [
 	MENU_LINK_LIST_MEN,
 	MENU_LINK_LIST_WOMEN,
@@ -13,7 +17,16 @@ const linkContent = [
 	MENU_LINK_LIST_STAY_CONNECTED,
 ];
 
-export function Menu() {
+export function Menu({ setMenuToggle }) {
+	const [category, setCategory] = useRecoilState(categoryState);
+	const [subCategory, setSubCategory] = useRecoilState(subCategoryState);
+
+	function handleClick(cat, sub) {
+		setCategory(cat);
+		setSubCategory(sub);
+		setMenuToggle(false);
+	}
+
 	return (
 		<>
 			<div className="flex justify-center space-x-16">
@@ -22,7 +35,18 @@ export function Menu() {
 						<ul className="space-y-16" key={idx}>
 							{linkContainer.map((linkItem, idx) => {
 								return (
-									<Link key={idx} to={linkItem.path}>
+									<Link
+										key={idx}
+										to={linkItem.path}
+										onClick={() => {
+											if (linkItem.singular) {
+												handleClick(
+													linkItem.connectedWithCategory,
+													linkItem.singular
+												);
+											}
+										}}
+									>
 										<li className="my-8">
 											<p className="flex items-center space-x-2 ">
 												<BiBox />

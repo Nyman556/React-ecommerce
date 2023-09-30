@@ -1,11 +1,10 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { EXPLORE_IMAGE_URL } from "../constants/imageUrls";
-import { GetProductsById } from "../services/api";
 import { useRecoilState } from "recoil";
 import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
 
-export function ExplorePage({ setProducts }) {
+export function ExplorePage() {
 	const [category, setCategory] = useRecoilState(categoryState);
 	const [subCategory, setSubCategory] = useRecoilState(subCategoryState);
 
@@ -19,7 +18,7 @@ export function ExplorePage({ setProducts }) {
 							to="/shop"
 							value={2}
 							className="hover:bg-darkCyan transition-colors hover:text-white"
-							onClick={(e) => {
+							onClick={() => {
 								setCategory(2);
 								setSubCategory("");
 							}}
@@ -29,7 +28,7 @@ export function ExplorePage({ setProducts }) {
 						<Link
 							to="/shop"
 							className="hover:bg-darkCyan transition-colors hover:text-white"
-							onClick={(e) => {
+							onClick={() => {
 								setCategory(1);
 								setSubCategory("");
 							}}

@@ -1,10 +1,18 @@
+import { Link } from "react-router-dom";
+import { productState } from "../state/atoms/ProductState";
+import { useRecoilState } from "recoil";
+
 export function Product({ product }) {
-	const { title, desc, brand, thumbnail, price, images } = product.attributes;
+	const [selectedProduct, setSelectedProduct] = useRecoilState(productState);
+	const { title, brand, thumbnail, price, images } = product.attributes;
 	const thumbnailWidth = "?imwidth=500";
 	return (
-		<div
+		<Link
+			to="/product"
 			className="flex flex-col justify-end  h-fit rounded-xl p-4 max-w-xs cursor-pointer"
-			onClick={() => {}}
+			onClick={() => {
+				setSelectedProduct(product);
+			}}
 		>
 			<div className="flex">
 				<img
@@ -19,7 +27,7 @@ export function Product({ product }) {
 				<p className=" text-sm">{title}</p>
 				<p className="text-md">{price},00 kr</p>
 			</div>
-		</div>
+		</Link>
 	);
 	function mouseOver(x) {
 		x.src = images[0];
