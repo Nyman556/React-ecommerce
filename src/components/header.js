@@ -12,9 +12,10 @@ import {
 	MENU_LINK_LIST_MEN,
 	MENU_LINK_LIST_WOMEN,
 } from "../constants/constants";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
+import { cartState } from "../state/atoms/cartState";
 
 export function Header() {
 	const header = useRef(null);
@@ -22,6 +23,7 @@ export function Header() {
 	const [categoriesToggle, setCategoriesToggle] = useState(false);
 	const setCategory = useSetRecoilState(categoryState);
 	const setSubCategory = useSetRecoilState(subCategoryState);
+	const cart = useRecoilValue(cartState);
 	const scrollHandler = () => {
 		if (header.current && window.screen.width > 480) {
 			if (window.pageYOffset >= 60) {
@@ -136,7 +138,8 @@ export function Header() {
 						<BiSearch />
 					</div>
 					<button className="inline-flex items-center bg-darkCyan px-4 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors">
-						<span>Cart</span> <BiCartAlt />
+						<span>Cart</span> <BiCartAlt />{" "}
+						{cart.length === 0 ? null : <span>{cart.length}</span>}
 					</button>
 					<button
 						className="inline-flex items-center bg-darkCyan px-4 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors"

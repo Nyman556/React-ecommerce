@@ -3,7 +3,7 @@ import { Product } from "../components/product";
 import { useRecoilState } from "recoil";
 import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import {
 	GetProductsByCatAndSubCat,
 	GetProductsByCatId,
@@ -40,6 +40,10 @@ export function ShopPage() {
 			);
 		}
 	}, [category, subCategory]);
+
+	useLayoutEffect(() => {
+		window.scrollTo(0, 0);
+	});
 
 	return (
 		<div className="flex flex-col w-2/3 self-center">
