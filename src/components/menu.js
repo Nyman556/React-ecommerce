@@ -8,7 +8,7 @@ import {
 } from "../constants/constants";
 import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 const linkContent = [
 	MENU_LINK_LIST_MEN,
@@ -18,8 +18,8 @@ const linkContent = [
 ];
 
 export function Menu({ setMenuToggle }) {
-	const [category, setCategory] = useRecoilState(categoryState);
-	const [subCategory, setSubCategory] = useRecoilState(subCategoryState);
+	const setCategory = useSetRecoilState(categoryState);
+	const setSubCategory = useSetRecoilState(subCategoryState);
 
 	function handleClick(cat, sub) {
 		setCategory(cat);
@@ -84,27 +84,3 @@ export function Menu({ setMenuToggle }) {
 		</>
 	);
 }
-
-/* 
-{listObjects.map((listItem, idx) => {
-	return (
-		<ul key={idx} className="space-y-16">
-			{listItem.categories.map((category, idx) => {
-				return (
-					<Link key={idx} to="/">
-						<li className="my-8">
-							<p className="flex items-center space-x-2 ">
-								<BiBox />
-								<span>{category}</span>
-							</p>
-							<span className=" text-gray-400">
-								T-shirts, Polos, and Button-Downs
-							</span>
-						</li>
-					</Link>
-				);
-			})}
-		</ul>
-	);
-})}
-*/

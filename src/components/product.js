@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { productState } from "../state/atoms/ProductState";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 export function Product({ product }) {
-	const [selectedProduct, setSelectedProduct] = useRecoilState(productState);
+	const setSelectedProduct = useSetRecoilState(productState);
 	const { title, brand, thumbnail, price, images } = product.attributes;
 	const thumbnailWidth = "?imwidth=500";
 	return (
 		<Link
-			to="/product"
+			to={"/product"}
 			className="flex flex-col justify-end  h-fit rounded-xl p-4 max-w-xs cursor-pointer"
 			onClick={() => {
 				setSelectedProduct(product);
@@ -29,10 +29,10 @@ export function Product({ product }) {
 			</div>
 		</Link>
 	);
-	function mouseOver(x) {
-		x.src = images[0];
+	function mouseOver(target) {
+		target.src = images[0];
 	}
-	function mouseOut(x) {
-		x.src = thumbnail + thumbnailWidth;
+	function mouseOut(target) {
+		target.src = thumbnail + thumbnailWidth;
 	}
 }

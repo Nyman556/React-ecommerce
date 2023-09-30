@@ -1,11 +1,10 @@
 import logo from "../assets/logo.jpg";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
 	BiCartAlt,
 	BiChevronDown,
 	BiChevronUp,
 	BiSearch,
-	BiSolidDownArrow,
 } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
 import { Menu } from "./menu";
@@ -13,7 +12,7 @@ import {
 	MENU_LINK_LIST_MEN,
 	MENU_LINK_LIST_WOMEN,
 } from "../constants/constants";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
 
@@ -21,8 +20,8 @@ export function Header() {
 	const header = useRef(null);
 	const [menuToggle, setMenuToggle] = useState(false);
 	const [categoriesToggle, setCategoriesToggle] = useState(false);
-	const [category, setCategory] = useRecoilState(categoryState);
-	const [subCategory, setSubCategory] = useRecoilState(subCategoryState);
+	const setCategory = useSetRecoilState(categoryState);
+	const setSubCategory = useSetRecoilState(subCategoryState);
 	const scrollHandler = () => {
 		if (header.current && window.screen.width > 480) {
 			if (window.pageYOffset >= 60) {
@@ -51,7 +50,7 @@ export function Header() {
 		>
 			<div className="w-2/3 flex m-auto py-4  w-4/4 justify-between">
 				<Link to="/">
-					<img src={logo} />
+					<img src={logo} alt="logo" />
 				</Link>
 				<nav className="flex items-center mx-24 space-x-10 text-lg">
 					<Link to="/explore">Shop Now</Link>
@@ -82,7 +81,6 @@ export function Header() {
 											<Link
 												key={idx}
 												to={category.path}
-												value={category.linkLabel}
 												className=" text-sm hover:text-black"
 												onClick={() => {
 													handleClick(
@@ -110,6 +108,7 @@ export function Header() {
 										return (
 											<Link
 												key={idx}
+												to={category.path}
 												className=" text-sm hover:text-black"
 												onClick={() => {
 													handleClick(
