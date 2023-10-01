@@ -17,16 +17,14 @@ export function CartPage() {
 
 	return (
 		<div className="w-2/3 flex my-8 justify-center space-x-16">
-			<div className="flex flex-col [&>*]:bg-lightCyan space-y-4">
+			<div className="flex flex-col [&>*]:bg-lightGray space-y-4 [&>*]:text-white">
 				<div className="p-4">
-					<h3 className=" text-2xl">Cart</h3>
+					<h3 className=" text-2xl">CART</h3>
 					<p>Total products in cart: {cart.length}</p>
 				</div>
-				{!cart.length ? (
-					<h4 className="p-4">No Products to display...</h4>
-				) : null}
+				{!cart.length ? <h4 className="p-4">No Products in cart...</h4> : null}
 				{cart.map((cartItem, idx) => {
-					const { title, price, thumbnail, variant, size } =
+					const { title, price, thumbnail, size, variant } =
 						cartItem.attributes;
 					return (
 						<div
@@ -39,7 +37,7 @@ export function CartPage() {
 									src={thumbnail}
 									alt="thumbnail of product"
 								/>
-								<div className="flex flex-col justify-between space-y-2">
+								<div className="flex flex-col justify-between">
 									<p>{title}</p>
 									<p className="text-xl">{price},00 kr</p>
 									<p>
@@ -47,7 +45,7 @@ export function CartPage() {
 									</p>
 									<p>size: {typeof size !== "string" ? size[0] : size}</p>
 									<button
-										className=" w-max self-start bg-darkCyan px-2 py-2 lg:px-5 lg:py-3 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors"
+										className="w-max self-start px-2 py-2 bg-darkCyan lg:px-5 lg:py-3 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors"
 										onClick={() => {
 											removeCartItem(cartItem);
 										}}
@@ -60,8 +58,22 @@ export function CartPage() {
 					);
 				})}
 			</div>
-			<div className="flex flex-col justify-between bg-lightCyan p-4 max-h-40 w-96">
-				<h3 className="text-2xl">your total is: {cartValue},00 kr</h3>
+			<div className="flex flex-col justify-between bg-lightGray text-white p-4 max-h-56 w-96">
+				<h3 className="text-2xl">TOTAL</h3>
+				<div className=" space-y-4 my-2">
+					<div className="flex justify-between">
+						<p>Products:</p>
+						<p>{cartValue},00 kr</p>
+					</div>
+					<div className="flex justify-between">
+						<p>Shipping:</p>
+						<p>0 kr</p>
+					</div>
+					<div className="flex justify-between">
+						<p>Total (incl. taxes):</p>
+						{cartValue},00 kr
+					</div>
+				</div>
 				<button className="bg-darkCyan px-2 py-2 lg:px-5 lg:py-3 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors">
 					Checkout
 				</button>
@@ -69,5 +81,3 @@ export function CartPage() {
 		</div>
 	);
 }
-
-// <h3 className=" text-4xl">Cart</h3>

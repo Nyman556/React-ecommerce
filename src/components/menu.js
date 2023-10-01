@@ -10,6 +10,7 @@ import { categoryState } from "../state/atoms/CategoryState";
 import { subCategoryState } from "../state/atoms/SubCategoryState";
 import { useSetRecoilState } from "recoil";
 
+// array av imports för map
 const linkContent = [
 	MENU_LINK_LIST_MEN,
 	MENU_LINK_LIST_WOMEN,
@@ -21,6 +22,7 @@ export function Menu({ setMenuToggle }) {
 	const setCategory = useSetRecoilState(categoryState);
 	const setSubCategory = useSetRecoilState(subCategoryState);
 
+	// sätter subkategori och kategori, stänger menyn.
 	function handleClick(cat, sub) {
 		setCategory(cat);
 		setSubCategory(sub);

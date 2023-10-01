@@ -24,8 +24,10 @@ export function Header() {
 	const setCategory = useSetRecoilState(categoryState);
 	const setSubCategory = useSetRecoilState(subCategoryState);
 	const totalcartState = useRecoilValue(TotalInCart);
+
+	// sätter sticky på headern vid scroll
 	const scrollHandler = () => {
-		if (header.current && window.screen.width > 480) {
+		if (header.current) {
 			if (window.pageYOffset >= 60) {
 				header.current.classList.add("sticky");
 			} else {
@@ -34,6 +36,7 @@ export function Header() {
 		}
 	};
 
+	// sätter subkategori och kategori, stänger kategorimenyn.
 	function handleClick(cat, sub) {
 		setCategory(cat);
 		setSubCategory(sub);

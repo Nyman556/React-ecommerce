@@ -20,6 +20,11 @@ export function ProductPage() {
 	const [selectedSize, setSelectedSize] = useState(
 		typeof size !== "string" ? size[0] : size
 	);
+
+	const thumbnailWidth = "?imwidth=500";
+	const imageBulkWidth = "?imwidth=70";
+
+	// funktion för toastify, res kommer från addToCart
 	function notify(res) {
 		if (res) {
 			toast.success("Added to cart!");
@@ -27,9 +32,8 @@ export function ProductPage() {
 			toast.error("Product already in Cart");
 		}
 	}
-	const thumbnailWidth = "?imwidth=500";
-	const imageBulkWidth = "?imwidth=70";
 
+	// funktioner för att byta bild på main-bilden vid hover
 	function mouseOver(target) {
 		thumbnailElement.current.src = target.src.slice(0, 113) + thumbnailWidth;
 	}
@@ -37,6 +41,7 @@ export function ProductPage() {
 		thumbnailElement.current.src = thumbnail + thumbnailWidth;
 	}
 
+	// kollar om produkten redan finns i cart, annars lägger den till den.
 	function addToCart() {
 		const found = cart.find((item) => {
 			return item.id === selectedProduct.id;
@@ -49,6 +54,7 @@ export function ProductPage() {
 		}
 	}
 
+	// för att resetta scrollen vid link klick från andra routes
 	useLayoutEffect(() => {
 		window.scrollTo(0, 0);
 	});
@@ -119,7 +125,13 @@ export function ProductPage() {
 							{typeof size !== "string" ? (
 								size.map((sizeVariant, idx) => {
 									return (
-										<option key={idx} value={sizeVariant}>
+										<option
+											key={idx}
+											value={sizeVariant}
+											onChange={(e) => {
+												setSelectedSize(e.target.value);
+											}}
+										>
 											{sizeVariant}
 										</option>
 									);

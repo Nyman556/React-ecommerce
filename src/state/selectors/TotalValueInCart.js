@@ -1,6 +1,7 @@
 import { selector } from "recoil";
 import { cartState } from "../atoms/cartState";
 
+// selector som ger tillbaks värdet av hela carten
 export const TotalValueInCart = selector({
 	key: "TotalValueInCart",
 	get: ({ get }) => {

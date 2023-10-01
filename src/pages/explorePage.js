@@ -8,6 +8,7 @@ export function ExplorePage() {
 	const setCategory = useSetRecoilState(categoryState);
 	const setSubCategory = useSetRecoilState(subCategoryState);
 
+	// sätter kategori till 1/2 och tömmer subkategori.
 	function handleClick(cat, sub) {
 		setCategory(cat);
 		setSubCategory(sub);

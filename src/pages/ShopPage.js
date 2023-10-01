@@ -22,7 +22,7 @@ export function ShopPage() {
 	if (category === 2) {
 		breadCrumb = "Women";
 	}
-
+	// laddar all apidata om varken kategori eller subkategori finns, => kategori => subkategori, uppdaterar när dessa uppdateras.
 	useEffect(() => {
 		if (category === 0 && !subCategory) {
 			getAllProducts().then((apiData) => {
@@ -41,6 +41,7 @@ export function ShopPage() {
 		}
 	}, [category, subCategory]);
 
+	// för att resetta scrollen vid link klick från andra routes
 	useLayoutEffect(() => {
 		window.scrollTo(0, 0);
 	});

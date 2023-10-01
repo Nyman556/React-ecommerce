@@ -6,6 +6,14 @@ export function Product({ product }) {
 	const setSelectedProduct = useSetRecoilState(productState);
 	const { title, brand, thumbnail, price, images } = product.attributes;
 	const thumbnailWidth = "?imwidth=500";
+
+	// byter till image[0] vid hover på produktbilden
+	function mouseOver(target) {
+		target.src = images[0];
+	}
+	function mouseOut(target) {
+		target.src = thumbnail + thumbnailWidth;
+	}
 	return (
 		<Link
 			to={"/product"}
@@ -29,10 +37,4 @@ export function Product({ product }) {
 			</div>
 		</Link>
 	);
-	function mouseOver(target) {
-		target.src = images[0];
-	}
-	function mouseOut(target) {
-		target.src = thumbnail + thumbnailWidth;
-	}
 }
