@@ -1,17 +1,32 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { productState } from "../state/atoms/ProductState";
-import { Btn } from "../components/btn";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { cartState } from "../state/atoms/cartState";
 import { BiChevronLeft } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function ProductPage() {
 	const selectedProduct = useRecoilValue(productState);
 	const [cart, setCart] = useRecoilState(cartState);
 	const thumbnailElement = useRef(null);
-	const { title, desc, brand, thumbnail, price, images, code } =
+	const { title, desc, brand, thumbnail, price, images, code, variant, size } =
 		selectedProduct.attributes;
+
+	const [selectedVariant, setSelectedVariant] = useState(
+		typeof variant !== "string" ? variant[0] : variant
+	);
+	const [selectedSize, setSelectedSize] = useState(
+		typeof size !== "string" ? size[0] : size
+	);
+	function notify(res) {
+		if (res) {
+			toast.success("Added to cart!");
+		} else {
+			toast.error("Product already in Cart");
+		}
+	}
 	const thumbnailWidth = "?imwidth=500";
 	const imageBulkWidth = "?imwidth=70";
 
@@ -20,6 +35,18 @@ export function ProductPage() {
 	}
 	function mouseOut() {
 		thumbnailElement.current.src = thumbnail + thumbnailWidth;
+	}
+
+	function addToCart() {
+		const found = cart.find((item) => {
+			return item.id === selectedProduct.id;
+		});
+		if (!found) {
+			notify(true);
+			setCart([...cart, selectedProduct]);
+		} else {
+			notify(false);
+		}
 	}
 
 	useLayoutEffect(() => {
@@ -62,11 +89,51 @@ export function ProductPage() {
 					<p className=" text-4xl max-w-sm text-lightGray">{title}</p>
 					<p>code: {code}</p>
 					<p className="text-4xl">{price},00 kr</p>
+					<div className="flex flex-col space-y-2">
+						<label htmlFor="variation-select">Color:</label>
+						<select
+							className="border text-xl"
+							id="variation-select"
+							onChange={(e) => {
+								setSelectedVariant(e.target.value);
+							}}
+						>
+							{typeof variant !== "string" ? (
+								variant.map((variation, idx) => {
+									return (
+										<option key={idx} value={variation}>
+											{variation}
+										</option>
+									);
+								})
+							) : (
+								<option>{variant}</option>
+							)}
+						</select>
+						<label htmlFor="size-select">Size:</label>
+						<select
+							className="border text-xl"
+							id="size-select"
+							placeholder="size"
+						>
+							{typeof size !== "string" ? (
+								size.map((sizeVariant, idx) => {
+									return (
+										<option key={idx} value={sizeVariant}>
+											{sizeVariant}
+										</option>
+									);
+								})
+							) : (
+								<option>{size}</option>
+							)}
+						</select>
+					</div>
 					<div className="flex space-x-4">
 						<button
 							className="bg-darkCyan px-2 py-2 lg:px-5 lg:py-3 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors"
 							onClick={() => {
-								setCart([...cart, selectedProduct]);
+								addToCart();
 							}}
 						>
 							Add To Cart
@@ -75,7 +142,7 @@ export function ProductPage() {
 							className="px-2 py-2 lg:px-5 lg:py-3 border border-gray-400 rounded-md"
 							to="/cart"
 							onClick={() => {
-								setCart([...cart, selectedProduct]);
+								addToCart();
 							}}
 						>
 							Buy Now
@@ -84,6 +151,16 @@ export function ProductPage() {
 					<p className=" max-w-sm text-md">{desc}</p>
 				</div>
 			</div>
+			<ToastContainer
+				position="bottom-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				theme="light"
+			/>
 		</div>
 	);
 }

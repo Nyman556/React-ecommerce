@@ -74,7 +74,11 @@ export function Menu({ setMenuToggle }) {
 							<BiLogInCircle className="mx-2" />
 							Login
 						</Link>
-						<Link to="/cart" className="inline-flex items-center">
+						<Link
+							to="/cart"
+							className="inline-flex items-center"
+							onClick={() => setMenuToggle(false)}
+						>
 							<BiCartAlt className="mx-2" />
 							Cart
 						</Link>

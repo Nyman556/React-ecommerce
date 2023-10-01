@@ -6,6 +6,7 @@ import { HomePage } from "./pages/homePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ShopPage } from "./pages/ShopPage";
 import { ProductPage } from "./pages/productPage";
+import { CartPage } from "./pages/cartPage";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 						<Route path="/explore" element={<ExplorePage />} />
 						<Route path="/shop" element={<ShopPage />} />
 						<Route path="/product" element={<ProductPage />} />
+						<Route path="/cart" element={<CartPage />} />
 					</Routes>
 				</div>
 				<Footer />
