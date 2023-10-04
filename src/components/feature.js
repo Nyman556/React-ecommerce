@@ -19,7 +19,7 @@ export function Feature() {
 					<Btn content="Sign Up" variant="special" to="/login" />
 				</div>
 			</div>
-			<img src={FEATURE_IMAGE_URL} className="lg:w-2/4" />
+			<img src={FEATURE_IMAGE_URL} alt="Feature" className="lg:w-2/4" />
 		</section>
 	);
 }

@@ -20,7 +20,7 @@ export function Hero() {
 					</div>
 				</div>
 			</div>
-			<img className="w-12/12" src={HERO_IMAGE_URL} />
+			<img className="w-12/12" src={HERO_IMAGE_URL} alt="hero" />
 		</section>
 	);
 }

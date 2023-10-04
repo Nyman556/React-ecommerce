@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ShopPage } from "./pages/ShopPage";
 import { ProductPage } from "./pages/productPage";
 import { CartPage } from "./pages/cartPage";
+import { LoginPage } from "./pages/loginPage";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<div className="flex justify-center">
 					<Routes>
 						<Route exact path="/" element={<HomePage />} />
+						<Route path="/login" element={<LoginPage />} />
 						<Route path="/explore" element={<ExplorePage />} />
 						<Route path="/shop" element={<ShopPage />} />
 						<Route path="/product" element={<ProductPage />} />

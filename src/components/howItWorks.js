@@ -17,7 +17,11 @@ export function HowItWorks() {
 			</div>
 			<div className="flex justify-center space-x-12 my-12">
 				<div className="text-center w-1/3 space-y-10">
-					<img className=" w-max" src={HOW_IT_WORKS_IMAGE_URLS[0]} />
+					<img
+						className=" w-max"
+						src={HOW_IT_WORKS_IMAGE_URLS[0]}
+						alt="Style"
+					/>
 					<h5 className=" text-4xl">Find Your Style with Eease</h5>
 					<p>
 						Our Intuitive search and filter options help you quickly find the
@@ -25,7 +29,11 @@ export function HowItWorks() {
 					</p>
 				</div>
 				<div className="text-center w-1/3 space-y-10">
-					<img className=" w-max" src={HOW_IT_WORKS_IMAGE_URLS[1]} />
+					<img
+						className=" w-max"
+						src={HOW_IT_WORKS_IMAGE_URLS[1]}
+						alt="Confidence"
+					/>
 					<h5 className=" text-4xl">Shop with Confidence</h5>
 					<p>
 						We offer secure payment options and hassle-free returns, ensuring a
@@ -33,7 +41,11 @@ export function HowItWorks() {
 					</p>
 				</div>
 				<div className="text-center w-1/3 space-y-10">
-					<img className=" w-max" src={HOW_IT_WORKS_IMAGE_URLS[2]} />
+					<img
+						className=" w-max"
+						src={HOW_IT_WORKS_IMAGE_URLS[2]}
+						alt="Trends"
+					/>
 					<h5 className=" text-4xl">
 						Stay on Top of the <br /> Latest Trends
 					</h5>

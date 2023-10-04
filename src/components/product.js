@@ -28,6 +28,7 @@ export function Product({ product }) {
 					src={thumbnail + thumbnailWidth}
 					onMouseOver={(e) => mouseOver(e.target)}
 					onMouseOut={(e) => mouseOut(e.target)}
+					alt="product"
 				/>
 			</div>
 			<div className="flex flex-col text-lightGray">

@@ -19,7 +19,7 @@ export function Footer() {
 		<footer className=" mt-36  my-16 mx-60 py-4">
 			<div className="flex justify-between border-b-2 py-4">
 				<div>
-					<img src={logo} />
+					<img src={logo} alt="logo" />
 				</div>
 				<ul className="flex flex-col [&>a]:text-sm space-y-3 [&>a]:text-gray-400">
 					<p>About Us</p>
