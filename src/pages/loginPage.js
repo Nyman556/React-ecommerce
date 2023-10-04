@@ -38,7 +38,7 @@ export function LoginPage() {
 					Don't have an account? <Link className=" text-blue-600">Sign Up</Link>
 				</p>
 			</form>
-			<div className=" w-96">
+			<div className=" max-w-lg">
 				<img className="rounded-xl" src={LOGIN_IMAGE_URL} />
 			</div>
 		</div>
