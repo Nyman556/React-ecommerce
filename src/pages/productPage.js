@@ -47,8 +47,14 @@ export function ProductPage() {
 			return item.id === selectedProduct.id;
 		});
 		if (!found) {
+			const productToAdd = {
+				...selectedProduct,
+				selectedVariant,
+				selectedSize,
+			};
+
 			notify(true);
-			setCart([...cart, selectedProduct]);
+			setCart([...cart, productToAdd]);
 		} else {
 			notify(false);
 		}
@@ -121,17 +127,14 @@ export function ProductPage() {
 							className="border text-xl"
 							id="size-select"
 							placeholder="size"
+							onChange={(e) => {
+								setSelectedSize(e.target.value);
+							}}
 						>
 							{typeof size !== "string" ? (
 								size.map((sizeVariant, idx) => {
 									return (
-										<option
-											key={idx}
-											value={sizeVariant}
-											onChange={(e) => {
-												setSelectedSize(e.target.value);
-											}}
-										>
+										<option key={idx} value={sizeVariant}>
 											{sizeVariant}
 										</option>
 									);

@@ -75,17 +75,17 @@ export function Footer() {
 					<Link className="underline">Terms of Service</Link>
 					<Link className="underline">Cookie Policy</Link>
 				</div>
-				<div className="flex text-darkCyan [&>a]:hover:text-black transition-colors">
-					<a href="https://www.facebook.com/">
+				<div className="flex text-darkCyan transition-colors">
+					<a href="https://www.facebook.com/" className="hover:text-black">
 						<BiLogoFacebookCircle size={25} />
 					</a>
-					<a href="https://www.instagram.com/">
+					<a href="https://www.instagram.com/" className="hover:text-black">
 						<BiLogoInstagramAlt size={25} />
 					</a>
-					<a href="https://www.twitter.com/">
+					<a href="https://www.twitter.com/" className="hover:text-black">
 						<BiLogoTwitter size={25} />
 					</a>
-					<a href="https://www.linkedin.com/">
+					<a href="https://www.linkedin.com/" className="hover:text-black">
 						<BiLogoLinkedinSquare size={25} />
 					</a>
 				</div>

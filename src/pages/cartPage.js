@@ -24,8 +24,8 @@ export function CartPage() {
 				</div>
 				{!cart.length ? <h4 className="p-4">No Products in cart...</h4> : null}
 				{cart.map((cartItem, idx) => {
-					const { title, price, thumbnail, size, variant } =
-						cartItem.attributes;
+					const { title, price, thumbnail } = cartItem.attributes;
+					const { selectedSize, selectedVariant } = cartItem;
 					return (
 						<div
 							key={idx}
@@ -33,17 +33,15 @@ export function CartPage() {
 						>
 							<div className="flex space-x-6">
 								<img
-									className=" w-32"
+									className="w-32"
 									src={thumbnail}
 									alt="thumbnail of product"
 								/>
-								<div className="flex flex-col justify-between">
+								<div className="flex flex-col space-y-2">
 									<p>{title}</p>
 									<p className="text-xl">{price},00 kr</p>
-									<p>
-										color: {typeof variant !== "string" ? variant[0] : variant}
-									</p>
-									<p>size: {typeof size !== "string" ? size[0] : size}</p>
+									<p>color: {selectedVariant}</p>
+									<p>size: {selectedSize}</p>
 									<button
 										className="w-max self-start px-2 py-2 bg-darkCyan lg:px-5 lg:py-3 rounded-md text-white space-x-2 hover:bg-cyan-900 transition-colors"
 										onClick={() => {
