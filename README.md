@@ -1,6 +1,6 @@
 # Trendfusion
 
-Trendfusion är en e-handelsapplikation byggd med React och Strapi som backend. Den erbjuder en modern shoppingupplevelse med produktkatalog, kundkorg och checkout-funktionalitet.
+Trendfusion är en e-handelsapplikation byggd med React och Strapi som backend.
 
 ## Teknisk stack
 
